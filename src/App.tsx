@@ -66,7 +66,10 @@ const TransitioningLink = ({ to, transition, children, ...props }) => {
     if (to === '-1') to = -1; // is equivalent to hitting the back button; @see: https://reactrouter.com/6.28.1/hooks/use-navigate#usenavigate
 
     if (viewTransitionSupported) {
-      document.startViewTransition(_ => {
+
+      document.startViewTransition(async () => {
+        await new Promise(resolve => setTimeout(resolve, 400));
+
 //        console.log(event)
 //        window.scrollTo(0, 0);
         const prevBodyHeight = document.body.scrollHeight;
@@ -139,7 +142,7 @@ const Page2 = () => {
       <div className="ruler"></div>
       <h1>Page2 (React Router)</h1>
 
-      <div class="row">
+      <div className="row">
         <TransitioningLink to="/page1" transition="pop">
           zurück
         </TransitioningLink>
@@ -155,7 +158,7 @@ const Page2 = () => {
         ))}
       </ul>
 
-      <div class="row">
+      <div className="row">
         <TransitioningLink to="/page1" transition="pop">
           zurück
         </TransitioningLink>
@@ -171,7 +174,7 @@ const Page2 = () => {
         ))}
       </ul>
 
-      <div class="row">
+      <div className="row">
         <TransitioningLink to="/page1" transition="pop">
           zurück
         </TransitioningLink>
