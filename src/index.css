@@ -14,7 +14,7 @@
 }
 
 * {
-  background: #f0f3 !important;
+  /*background: #f0f3 !important;*/
   outline: 1px solid #000;
   -webkit-backface-visibility:hidden;
 }
